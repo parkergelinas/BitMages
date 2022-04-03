@@ -1,10 +1,14 @@
 /* Customize your main colors in :root variables */
 :root {
-  --main-background-color: #343A50;
-  --card-background-color: #51576D;
-  --card-background-lighter-color: #7A7F92;
-  --main-text-color:#F7F6F4;
-  --title-text-color:#3CBA8B;
+  --main-background-color: #F6E3FD;
+  --card-background-color: #AF89D1;
+  --card-background-lighter-color: #AF89D1;
+  --main-text-color:#000000;
+  --title-text-color:rgb(0, 0, 0);
+}
+
+a{
+  color: white; text-decoration: none;
 }
 
 body{
@@ -12,7 +16,7 @@ body{
   /*background: url("img/background.png");
   background-size: cover;*/
 
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Press Start 2P', cursive;
   font-size: 1.1em;
 }
 
@@ -24,5 +28,32 @@ h3{
 font-weight: normal;
 }
 
+.MuiFab-extended{
+  height: auto;
+  padding-right: 0 !important;
+}
 
+.MuiFab-label{
+  font-weight: bold;
+}
 
+.MuiPaper-root{
+  background-color: #000000 !important;
+}
+
+.MuiButton-containedPrimary:not(.MuiButton-fullWidth) {
+  border-radius: 24px !important;
+  -webkit-border-radius: 24px !important;
+  -moz-border-radius: 24px !important;
+  -ms-border-radius: 24px !important;
+  -o-border-radius: 24px !important;
+  padding: 6px 16px;
+}
+
+.MuiButton-label{
+  font-size: 1.2em;
+}
+
+.MuiLinearProgress-colorPrimary{
+  background-color:var(--main-text-color) !important;
+}

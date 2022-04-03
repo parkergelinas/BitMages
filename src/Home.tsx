@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {useEffect, useState} from "react";
 import styled from "styled-components";
 import confetti from "canvas-confetti";
@@ -19,6 +20,7 @@ import {
     CANDY_MACHINE_PROGRAM,
 } from "./candy-machine";
 
+
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
 const decimals = process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS ? +process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS!.toString() : 9;
 const splTokenName = process.env.REACT_APP_SPL_TOKEN_TO_MINT_NAME ? process.env.REACT_APP_SPL_TOKEN_TO_MINT_NAME.toString() : "TOKEN";
@@ -37,7 +39,7 @@ const WalletAmount = styled.div`
   min-width: 48px;
   min-height: auto;
   border-radius: 22px;
-  background-color: var(--main-text-color);
+  background-color: #AF89D1 ;
   box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -71,7 +73,7 @@ const ConnectButton = styled(WalletMultiButton)`
 
 const NFT = styled(Paper)`
   min-width: 500px;
-  padding: 5px 20px 20px 20px;
+  padding: 5px 20px 5px 20px;
   flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
@@ -88,7 +90,7 @@ const Card = styled(Paper)`
   background-color: var(card-background-lighter-color) !important;
   margin: 5px;
   min-width: 40px;
-  padding: 24px;
+  padding: 5px 20px 5px 20px;
   h1{
     margin:0px;
   }
@@ -96,7 +98,7 @@ const Card = styled(Paper)`
 
 const MintButtonContainer = styled.div`
   button.MuiButton-contained:not(.MuiButton-containedPrimary).Mui-disabled {
-    color: #464646;
+    color: #000000;
   }
 
   button.MuiButton-contained:not(.MuiButton-containedPrimary):hover,
@@ -108,13 +110,13 @@ const MintButtonContainer = styled.div`
 
   @-webkit-keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #ef8f6e;
+      box-shadow: 0 0 0 0 #5D3580;
     }
   }
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #ef8f6e;
+      box-shadow: 0 0 0 0 #5D3580;
     }
   }
 `;
@@ -130,6 +132,7 @@ const Menu = styled.ul`
   list-style: none;
   display: inline-flex;
   flex: 1 0 auto;
+  justify-content: center;
 
   li {
     margin: 0 12px;
@@ -152,7 +155,7 @@ const Menu = styled.ul`
     }
 
     a:hover, a:active {
-      color: rgb(131, 146, 161);
+      color: rgb(87, 87, 87);
       border-bottom: 4px solid var(--title-text-color);
     }
 
@@ -199,14 +202,16 @@ const DesContainer = styled.div`
   flex-direction: column;
   flex: 1 1 auto;
   gap: 20px;
+  margin-bottom: 40px;
 `;
+
 
 const Price = styled(Chip)`
   position: absolute;
   margin: 5px;
   font-weight: bold;
   font-size: 1.2em !important;
-  font-family: 'Patrick Hand', cursive !important;
+  font-family: 'Press Start 2P', cursive !important;
 `;
 
 const Image = styled.img`
@@ -234,21 +239,6 @@ const BorderLinearProgress = styled(LinearProgress)`
   }
 `;
 
-const ShimmerTitle = styled.h1`
-  margin: 20px auto;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
-
 const GoldTitle = styled.h2`
   color: var(--title-text-color);
 `;
@@ -262,6 +252,8 @@ const LogoAligner = styled.div`
     margin-right: 10px;
   }
 `;
+
+
 
 
 export interface HomeProps {
@@ -545,19 +537,18 @@ const Home = (props: HomeProps) => {
         isPresale
     ]);
 
+
     return (
         <main>
             <MainContainer>
                 <WalletContainer>
                     <Logo><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
-                                                                                                          src="logo.png"/></a></Logo>
+                                                                                                          src="MagesDAO.png"/></a></Logo>
                     <Menu>
-                        <li><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">Menu 1</a>
-                        </li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 2</a></li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 3</a></li>
+                        <li><a href="https://twitter.com/Mages_DAO" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        </li> <br />
+                        <li><a href="https://discord.gg/PxxXPCZtVx" target="_blank"
+                               rel="noopener noreferrer">Discord</a></li> <br />
                     </Menu>
                     <Wallet>
                         {wallet ?
@@ -565,16 +556,15 @@ const Home = (props: HomeProps) => {
                             <ConnectButton>Connect Wallet</ConnectButton>}
                     </Wallet>
                 </WalletContainer>
-                <ShimmerTitle>MINT IS LIVE !</ShimmerTitle>
                 <br/>
                 <MintContainer>
                     <DesContainer>
                         <NFT elevation={3}>
-                            <h2>My NFT</h2>
+                            <h2>MagesDAO</h2>
                             <br/>
                             <div><Price
                                 label={isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel)}/><Image
-                                src="cool-cats.gif"
+                                src="magesgif.gif"
                                 alt="NFT To Mint"/></div>
                             <br/>
                             {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
@@ -656,36 +646,35 @@ const Home = (props: HomeProps) => {
                               <SolExplorerLink href={solanaExplorerLink} target="_blank">View on Solscan</SolExplorerLink>}
                         </NFT>
                     </DesContainer>
-                    <DesContainer>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 1</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 2</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 3</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                    </DesContainer>
                 </MintContainer>
+                <DesContainer>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
+                        <p>Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
+                        <p>We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
+                        <p> The path to full decentralization should be completed by the community with aide of the team. </p>
+                        <p> Each Mage is entitled to one vote in all governance matters. (Votes stick to the Mage, if you sell, the vote goes with it.) </p>
+                    </Des>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>Roadmap</GoldTitle></LogoAligner>
+                        <p> Our initial goal is to generate funds & structure a DAO to begin investments.  </p>
+                        <p> We believe our Mages deserve a home, so we have our eyes on Mage housing development. </p>
+                        <p> We have plenty of ideas for further development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
+                    </Des>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>Staking</GoldTitle></LogoAligner>
+                        <p> Our plan for staking is to have a tower for all mages to collect together, in this tower they will begin to hone their magical powers. </p>
+                    </Des>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>Auctions</GoldTitle></LogoAligner>
+                        <p> We have plans for MagesDAO development with use of auctions for community related sales. </p>
+                    </Des>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>Fund Distribution</GoldTitle></LogoAligner>
+                        <p> 15% of funds generated to be distributed to creators, 85% of funds to be allocated to the DAO treasury. </p>
+                        <p> Sale royalties to be 5%, 2.5% to DAO treasury & 2.5% to creators. </p>
+                    </Des>
+                </DesContainer>
             </MainContainer>
             <Snackbar
                 open={alertState.open}
@@ -701,6 +690,6 @@ const Home = (props: HomeProps) => {
             </Snackbar>
         </main>
     );
-};
+  };
 
 export default Home;
