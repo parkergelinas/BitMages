@@ -39,7 +39,7 @@ const WalletAmount = styled.div`
   min-width: 48px;
   min-height: auto;
   border-radius: 22px;
-  background-color: #AF89D1 ;
+  background-color: #FFD695 ;
   box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -67,7 +67,7 @@ const Wallet = styled.ul`
 const ConnectButton = styled(WalletMultiButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
-  background-color: #4E44CE;
+  background-color: #6760ca;
   margin: 0 auto;
 `;
 
@@ -110,13 +110,13 @@ const MintButtonContainer = styled.div`
 
   @-webkit-keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #5D3580;
+      box-shadow: 0 0 0 0 #FFD189;
     }
   }
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #5D3580;
+      box-shadow: 0 0 0 0 #FFD189;
     }
   }
 `;
@@ -210,7 +210,7 @@ const Price = styled(Chip)`
   position: absolute;
   margin: 5px;
   font-weight: bold;
-  font-size: 1.2em !important;
+  font-size: .8em !important;
   font-family: 'Press Start 2P', cursive !important;
 `;
 
@@ -651,6 +651,7 @@ const Home = (props: HomeProps) => {
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
                         <p>Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
+                        <p>We plan on releasing multiple rounds of Mages, as new ones get trained, more will be enlisted!</p>
                         <p>We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
                         <p> The path to full decentralization should be completed by the community with aide of the team. </p>
                         <p> Each Mage is entitled to one vote in all governance matters. (Votes stick to the Mage, if you sell, the vote goes with it.) </p>
@@ -659,11 +660,13 @@ const Home = (props: HomeProps) => {
                         <LogoAligner><GoldTitle>Roadmap</GoldTitle></LogoAligner>
                         <p> Our initial goal is to generate funds & structure a DAO to begin investments.  </p>
                         <p> We believe our Mages deserve a home, so we have our eyes on Mage housing development. </p>
+                        <p> A staking system for the mages will be released a week after mint, gives time to allow everything to be situated. </p>
+                        <p> Create $MANA spl token & build utility system. </p>
                         <p> We have plenty of ideas for further development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
                     </Des>
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>Staking</GoldTitle></LogoAligner>
-                        <p> Our plan for staking is to have a tower for all mages to collect together, in this tower they will begin to hone their magical powers. </p>
+                        <p> Our plan for staking is to assemble all mages together within a tower, in this tower they will begin to hone their magical powers to train the future mages. </p>
                     </Des>
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>Auctions</GoldTitle></LogoAligner>

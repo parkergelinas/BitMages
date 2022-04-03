@@ -1,9 +1,9 @@
 {
-  "short_name": "Mint Page",
-  "name": "Mint Page",
+  "short_name": "MagesDAO",
+  "name": "MagesDAO",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "magelogo.png",
       "type": "image/png",
       "sizes": "358x358"
     }
