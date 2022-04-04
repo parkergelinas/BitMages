@@ -651,7 +651,7 @@ const Home = (props: HomeProps) => {
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
                         <p>Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
-                        <p>We plan on releasing multiple rounds of Mages, as new ones get trained, more will be enlisted!</p>
+                        <p>We plan on releasing multiple rounds of Mages, first round will be 333 mages, more to come as they further their training!</p>
                         <p>We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
                         <p> The path to full decentralization should be completed by the community with aide of the team. </p>
                         <p> Each Mage is entitled to one vote in all governance matters. (Votes stick to the Mage, if you sell, the vote goes with it.) </p>
@@ -660,9 +660,9 @@ const Home = (props: HomeProps) => {
                         <LogoAligner><GoldTitle>Roadmap</GoldTitle></LogoAligner>
                         <p> Our initial goal is to generate funds & structure a DAO to begin investments.  </p>
                         <p> We believe our Mages deserve a home, so we have our eyes on Mage housing development. </p>
-                        <p> A staking system for the mages will be released a week after mint, gives time to allow everything to be situated. </p>
-                        <p> Create $MANA spl token & build utility system. </p>
-                        <p> We have plenty of ideas for further development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
+                        <p> A staking system for the mages will be released post mint when possible, time will be needed to allow everything to be situated. </p>
+                        <p> Create $MANA SPL token & build utility system. </p>
+                        <p> We have plenty of ideas for future development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
                     </Des>
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>Staking</GoldTitle></LogoAligner>
