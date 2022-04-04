@@ -67,7 +67,7 @@ const Wallet = styled.ul`
 const ConnectButton = styled(WalletMultiButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
-  background-color: #6760ca;
+  background-color: #ffa616;
   margin: 0 auto;
 `;
 
@@ -660,7 +660,7 @@ const Home = (props: HomeProps) => {
                         <LogoAligner><GoldTitle>Roadmap</GoldTitle></LogoAligner>
                         <p> Our initial goal is to generate funds & structure a DAO to begin investments.  </p>
                         <p> We believe our Mages deserve a home, so we have our eyes on Mage housing development. </p>
-                        <p> A staking system for the mages will be released post mint when possible, time will be needed to allow everything to be situated. </p>
+                        <p> A potential staking or airdrop system for the mages will be released post mint when possible, time will be needed to allow everything to be situated. </p>
                         <p> Create $MANA SPL token & build utility system. </p>
                         <p> We have plenty of ideas for future development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
                     </Des>
@@ -671,6 +671,10 @@ const Home = (props: HomeProps) => {
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>Auctions</GoldTitle></LogoAligner>
                         <p> We have plans for MagesDAO development with use of auctions for community related sales. </p>
+                    </Des>
+                    <Des elevation={2}>
+                        <LogoAligner><GoldTitle>Airdrops</GoldTitle></LogoAligner>
+                        <p> We have an airdrop system in the works for weekly airdrops to holders, which will include $MANA & in the future, Mage exclusives. </p>
                     </Des>
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>Fund Distribution</GoldTitle></LogoAligner>
