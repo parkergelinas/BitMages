@@ -650,9 +650,9 @@ const Home = (props: HomeProps) => {
                 <DesContainer>
                     <Des elevation={2}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
-                        <p>Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
-                        <p>We plan on releasing multiple rounds of Mages, first round will be 333 mages, more to come as they further their training!</p>
-                        <p>We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
+                        <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
+                        <p> We plan on releasing multiple rounds of Mages, first round will be 333 mages, more to come as they further their training!</p>
+                        <p> We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
                         <p> The path to full decentralization should be completed by the community with aide of the team. </p>
                         <p> Each Mage is entitled to one vote in all governance matters. (Votes stick to the Mage, if you sell, the vote goes with it.) </p>
                     </Des>
