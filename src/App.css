@@ -16,7 +16,6 @@ body{
   /*background: url("img/background.png");
   background-size: cover;*/
 
-  font-family: 'Press Start 2P', cursive;
   font-size: 1.1em;
 }
 
@@ -25,7 +24,7 @@ h2, p{
 }
 
 h3{
-font-weight: normal;
+  font-weight: normal;
 }
 
 .MuiFab-extended{
@@ -56,4 +55,8 @@ font-weight: normal;
 
 .MuiLinearProgress-colorPrimary{
   background-color:var(--main-text-color) !important;
+}
+
+.ConnectButton{
+
 }
