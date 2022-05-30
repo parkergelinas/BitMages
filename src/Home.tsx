@@ -201,7 +201,7 @@ const DesContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 40px;
 `;
 
