@@ -676,11 +676,6 @@ const Home = (props: HomeProps) => {
                         <LogoAligner><GoldTitle>Airdrops</GoldTitle></LogoAligner>
                         <p> We have an airdrop system in the works for weekly airdrops to holders, which will include $MANA & in the future, Mage exclusives. </p>
                     </Des>
-                    <Des elevation={2}>
-                        <LogoAligner><GoldTitle>Fund Distribution</GoldTitle></LogoAligner>
-                        <p> 15% of funds generated to be distributed to creators, 85% of funds to be allocated to the DAO treasury. </p>
-                        <p> Sale royalties to be 5%, 2.5% to DAO treasury & 2.5% to creators. </p>
-                    </Des>
                 </DesContainer>
             </MainContainer>
             <Snackbar
