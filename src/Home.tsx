@@ -650,31 +650,8 @@ const Home = (props: HomeProps) => {
                 <DesContainer>
                     <Des elevation={1}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
-                        <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting. Join by minting one of our first Mages, then vote on how the funds are spent!</p>
-                        <p> We plan on releasing multiple rounds of Mages, first round will be 333 mages, more to come as they further their training!</p>
-                        <p> We're heavily interested in the collection of NFT's, specifically ones that benefit the overall Solana Ecosystem, in which we hope to be able to give back to the community, our idea is to give back as much as possible.</p>
-                        <p> The path to full decentralization should be completed by the community with aide of the team. </p>
-                        <p> Each Mage is entitled to one vote in all governance matters. (Votes stick to the Mage, if you sell, the vote goes with it.) </p>
-                    </Des>
-                    <Des elevation={1}>
-                        <LogoAligner><GoldTitle>Roadmap</GoldTitle></LogoAligner>
-                        <p> Our initial goal is to generate funds & structure a DAO to begin investments.  </p>
-                        <p> We believe our Mages deserve a home, so we have our eyes on Mage housing development. </p>
-                        <p> A potential staking or airdrop system for the mages will be released post mint when possible, time will be needed to allow everything to be situated. </p>
-                        <p> Create $MANA SPL token & build utility system. </p>
-                        <p> We have plenty of ideas for future development, we like to take bites of the cookie rather than eat it whole, roadmap to be updated as things come to fruition. </p>
-                    </Des>
-                    <Des elevation={1}>
-                        <LogoAligner><GoldTitle>Staking</GoldTitle></LogoAligner>
-                        <p> Our plan for staking is to assemble all mages together within a tower, in this tower they will begin to hone their magical powers to train the future mages. </p>
-                    </Des>
-                    <Des elevation={2}>
-                        <LogoAligner><GoldTitle>Auctions</GoldTitle></LogoAligner>
-                        <p> We have plans for MagesDAO development with use of auctions for community related sales. </p>
-                    </Des>
-                    <Des elevation={2}>
-                        <LogoAligner><GoldTitle>Airdrops</GoldTitle></LogoAligner>
-                        <p> We have an airdrop system in the works for weekly airdrops to holders, which will include $MANA & in the future, Mage exclusives. </p>
+                        <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting.</p>
+                        <p> We plan on releasing multiple rounds of Mages, first round will be 333 mages.</p>
                     </Des>
                 </DesContainer>
             </MainContainer>
