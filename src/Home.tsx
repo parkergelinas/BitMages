@@ -208,6 +208,8 @@ const DesContainer = styled.div`
 
 const Price = styled(Chip)`
   position: absolute;
+  background-color:var(--main-text-color) !important;
+  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
   margin: 5px;
   font-weight: bold;
   font-size: .8em !important;
@@ -652,6 +654,11 @@ const Home = (props: HomeProps) => {
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
                         <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting.</p>
                         <p> We plan on releasing multiple rounds of Mages, first round will be 150 mages.</p>
+                    </Des>
+                    <Des elevation={1}>
+                        <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
+                        <p> As this project develops, staking & other systems will be looked into, and to be implemented. </p>
+                        <p> These systems may include staking, tokens, auctions, a game, airdrops, and any innovative contracts to Solana. </p>
                     </Des>
                 </DesContainer>
             </MainContainer>
