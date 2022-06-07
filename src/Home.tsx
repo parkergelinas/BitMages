@@ -39,7 +39,7 @@ const WalletAmount = styled.div`
   min-width: 48px;
   min-height: auto;
   border-radius: 22px;
-  background-color: #FFD695 ;
+  background-color: #995EAA ;
   box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -67,7 +67,7 @@ const Wallet = styled.ul`
 const ConnectButton = styled(WalletMultiButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
-  background-color: #ffa616;
+  background-color: #E09EF3;
   margin: 0 auto;
 `;
 
@@ -110,13 +110,13 @@ const MintButtonContainer = styled.div`
 
   @-webkit-keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #FFD189;
+      box-shadow: 0 0 0 0 #D8B4E6;
     }
   }
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #FFD189;
+      box-shadow: 0 0 0 0 #D8B4E6;
     }
   }
 `;
@@ -656,7 +656,7 @@ const Home = (props: HomeProps) => {
                         <p> We plan on releasing multiple rounds of Mages, first round will be 100 mages.</p>
                     </Des>
                     <Des elevation={1}>
-                        <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
+                        <LogoAligner><GoldTitle>Project Future</GoldTitle></LogoAligner>
                         <p> As this project develops, staking & other systems will be looked into, and to be implemented. </p>
                         <p> These systems may include staking, tokens, auctions, a game, airdrops, and any innovative contracts to Solana. </p>
                     </Des>

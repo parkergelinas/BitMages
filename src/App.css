@@ -1,8 +1,8 @@
 /* Customize your main colors in :root variables */
 :root {
-  --main-background-color: #FFCE7F;
-  --card-background-color: #FCE1C2;
-  --card-background-lighter-color: #FFD695;
+  --main-background-color: #D8B4E6;
+  --card-background-color: #995EAA;
+  --card-background-lighter-color: #E09EF3;
   --main-text-color:#000000;
   --title-text-color:rgb(0, 0, 0);
 }
@@ -57,6 +57,3 @@ h3{
   background-color:var(--main-text-color) !important;
 }
 
-.ConnectButton{
-
-}
