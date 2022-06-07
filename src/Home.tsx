@@ -651,7 +651,7 @@ const Home = (props: HomeProps) => {
                     <Des elevation={1}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
                         <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting.</p>
-                        <p> We plan on releasing multiple rounds of Mages, first round will be 333 mages.</p>
+                        <p> We plan on releasing multiple rounds of Mages, first round will be 150 mages.</p>
                     </Des>
                 </DesContainer>
             </MainContainer>
