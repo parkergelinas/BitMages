@@ -24,10 +24,15 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 
 import "./App.css";
-import Home from "./Home";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import AuctionPage from "./pages/Auction";
+import StakingPage from "./pages/Staking";
+import SwapPage from "./pages/SwapUI";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
-
 
 const candyMachineId = new anchor.web3.PublicKey(
   process.env.REACT_APP_CANDY_MACHINE_ID!
@@ -65,6 +70,7 @@ const theme = createTheme({
     },
 });
 
+
 const App = () => {
     // Custom RPC endpoint.
   const endpoint = useMemo(() => clusterApiUrl(network), []);
@@ -92,12 +98,34 @@ const App = () => {
         <ConnectionProvider endpoint={endpoint}>
           <WalletProvider wallets={wallets} autoConnect={true}>
             <WalletModalProvider>
-              <Home
-                candyMachineId={candyMachineId}
-                connection={connection}
-                txTimeout={txTimeout}
-                rpcHost={rpcHost}
-              />
+                <Router>
+                    <Routes>
+                        <Route path='/home'>
+                            <Route index element={<Home
+                                candyMachineId={candyMachineId}
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost}/>} />
+                            <Route path=":number" element={<Home
+                                candyMachineId={candyMachineId}
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost}/>} />
+                        </Route>
+                        <Route path='/auctions'>
+                            <Route index element={<AuctionPage />} />
+                            <Route path=":number" element={<AuctionPage />} />
+                        </Route>
+                        <Route path='/swapui'>
+                            <Route index element={<SwapPage />} />
+                            <Route path=":number" element={<SwapPage />} />
+                        </Route>
+                        <Route path='/staking'>
+                            <Route index element={<StakingPage />} />
+                            <Route path=":number" element={<StakingPage />} />
+                        </Route>
+                    </Routes>
+                </Router>
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>

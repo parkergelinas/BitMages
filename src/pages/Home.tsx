@@ -10,15 +10,15 @@ import {GatewayProvider} from '@civic/solana-gateway-react';
 import Countdown from "react-countdown";
 import {Snackbar, Paper, LinearProgress, Chip} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import {toDate, AlertState, getAtaForMint} from './utils';
-import {MintButton} from './MintButton';
+import {toDate, AlertState, getAtaForMint} from '../utils';
+import {MintButton} from '../MintButton';
 import {
     CandyMachine,
     awaitTransactionSignatureConfirmation,
     getCandyMachineState,
     mintOneToken,
     CANDY_MACHINE_PROGRAM,
-} from "./candy-machine";
+} from "../candy-machine";
 
 
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
@@ -59,8 +59,8 @@ const WalletAmount = styled.div`
 `;
 
 const Wallet = styled.ul`
-  flex: 0 0 auto;
-  margin: 0;
+  flex: 0 1 auto;
+  margin: 0 auto;
   padding: 0;
 `;
 
@@ -69,6 +69,7 @@ const ConnectButton = styled(WalletMultiButton)`
   padding: 6px 16px;
   background-color: #E09EF3;
   margin: 0 auto;
+  box-shadow: 5px 5px 5px 4em rgba(255, 255, 255, 0);
 `;
 
 const NFT = styled(Paper)`
@@ -110,13 +111,13 @@ const MintButtonContainer = styled.div`
 
   @-webkit-keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #D8B4E6;
+      box-shadow: 0 0 0 0 #c39fd1;
     }
   }
 
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 #D8B4E6;
+      box-shadow: 0 0 0 0 #a57db4;
     }
   }
 `;
@@ -135,7 +136,7 @@ const Menu = styled.ul`
   justify-content: center;
 
   li {
-    margin: 0 12px;
+    margin: 7px 12px 1px;
 
     a {
       color: var(--main-text-color);
@@ -147,7 +148,7 @@ const Menu = styled.ul`
       text-size-adjust: 100%;
       touch-action: manipulation;
       transition: color 0.3s;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
 
       img {
         max-height: 26px;
@@ -155,7 +156,7 @@ const Menu = styled.ul`
     }
 
     a:hover, a:active {
-      color: rgb(87, 87, 87);
+      color: rgb(84, 55, 88);
       border-bottom: 4px solid var(--title-text-color);
     }
 
@@ -258,14 +259,14 @@ const LogoAligner = styled.div`
 
 
 
-export interface HomeProps {
+export interface IHomePageProps {
     candyMachineId: anchor.web3.PublicKey;
     connection: anchor.web3.Connection;
     txTimeout: number;
     rpcHost: string;
-}
+};
 
-const Home = (props: HomeProps) => {
+const Home = (props: IHomePageProps) => {
     const [balance, setBalance] = useState<number>();
     const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
     const [isActive, setIsActive] = useState(false); // true when countdown completes or whitelisted
@@ -544,13 +545,19 @@ const Home = (props: HomeProps) => {
         <main>
             <MainContainer>
                 <WalletContainer>
-                    <Logo><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
+                    <Logo><a href="https://magesdao.vercel.app/" target="_blank" rel="noopener noreferrer"><img alt=""
                                                                                                           src="MagesDAO.png"/></a></Logo>
                     <Menu>
-                        <li><a href="https://twitter.com/Mages_DAO" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        </li> <br />
+                        <li><a href="https://twitter.com/Mages_DAO" target="_blank"
+                                rel="noopener noreferrer">Twitter</a></li> <br />
                         <li><a href="https://discord.gg/7pAwWAFG" target="_blank"
                                rel="noopener noreferrer">Discord</a></li> <br />
+                        <li><a href="/swapui" target="_blank"
+                               rel="/">SwapUI</a></li> <br />
+                        <li><a href="/staking" target="_blank"
+                               rel="/">Staking</a></li> <br />
+                        <li><a href="/auctions" target="_blank"
+                               rel="/">Auctions</a></li> <br />
                     </Menu>
                     <Wallet>
                         {wallet ?
@@ -652,7 +659,7 @@ const Home = (props: HomeProps) => {
                 <DesContainer>
                     <Des elevation={1}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
-                        <p> Mages is an NFT community meant for degens. We're a DAO focused on investments & collecting.</p>
+                        <p> Mages is an NFT community meant for builders & degens with long term goals.</p>
                         <p> We plan on releasing multiple rounds of Mages, first round will be 100 mages.</p>
                     </Des>
                     <Des elevation={1}>

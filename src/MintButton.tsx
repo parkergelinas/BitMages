@@ -10,7 +10,7 @@ export const CTAButton = styled(Button)`
   display: block !important;
   margin: 0 auto !important;
   background-color: #E09EF3!important;
-  box-shadow: 0 0 0 4em rgba(255, 255, 255, 0);
+  box-shadow: 5px 5px 4em rgba(255, 255, 255, 0);
   min-width: 120px !important;
   font-size: 1em !important;
 `;
