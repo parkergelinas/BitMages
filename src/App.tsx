@@ -100,7 +100,7 @@ const App = () => {
             <WalletModalProvider>
                 <Router>
                     <Routes>
-                        <Route path='/home'>
+                        <Route path='/'>
                             <Route index element={<Home
                                 candyMachineId={candyMachineId}
                                 connection={connection}
