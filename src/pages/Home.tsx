@@ -19,7 +19,7 @@ import {
     mintOneToken,
     CANDY_MACHINE_PROGRAM,
 } from "../candy-machine";
-
+import { Link } from 'react-router-dom';
 
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
 const decimals = process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS ? +process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS!.toString() : 9;
@@ -545,19 +545,19 @@ const Home = (props: IHomePageProps) => {
         <main>
             <MainContainer>
                 <WalletContainer>
-                    <Logo><a href="https://magesdao.vercel.app/" target="_blank" rel="noopener noreferrer"><img alt=""
+                    <Logo><a href="https://magesdao.vercel.app/home" target="_blank" rel="noopener noreferrer"><img alt=""
                                                                                                           src="MagesDAO.png"/></a></Logo>
                     <Menu>
-                        <li><a href="https://twitter.com/Mages_DAO" target="_blank"
-                                rel="noopener noreferrer">Twitter</a></li> <br />
-                        <li><a href="https://discord.gg/7pAwWAFG" target="_blank"
-                               rel="noopener noreferrer">Discord</a></li> <br />
-                        <li><a href="/swapui" target="_blank"
-                               rel="/">SwapUI</a></li> <br />
-                        <li><a href="/staking" target="_blank"
-                               rel="/">Staking</a></li> <br />
-                        <li><a href="/auctions" target="_blank"
-                               rel="/">Auctions</a></li> <br />
+                        <li><Link to="https://twitter.com/Mages_DAO" target="_blank"
+                                rel="noopener noreferrer">Twitter</Link></li> <br />
+                        <li><Link to="https://discord.gg/7pAwWAFG" target="_blank"
+                               rel="noopener noreferrer">Discord</Link></li> <br />
+                        <li><Link to="/swapui" target="_blank"
+                               rel="/">SwapUI</Link></li> <br />
+                        <li><Link to="/staking" target="_blank"
+                               rel="/">Staking</Link></li> <br />
+                        <li><Link to="/auctions" target="_blank"
+                               rel="/">Auctions</Link></li> <br />
                     </Menu>
                     <Wallet>
                         {wallet ?
