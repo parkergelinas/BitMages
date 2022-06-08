@@ -548,10 +548,10 @@ const Home = (props: IHomePageProps) => {
                     <Logo><a href="https://magesdao.vercel.app/home" target="_blank" rel="noopener noreferrer"><img alt=""
                                                                                                           src="MagesDAO.png"/></a></Logo>
                     <Menu>
-                        <li><Link to="https://twitter.com/Mages_DAO" target="_blank"
-                                rel="noopener noreferrer">Twitter</Link></li> <br />
-                        <li><Link to="https://discord.gg/7pAwWAFG" target="_blank"
-                               rel="noopener noreferrer">Discord</Link></li> <br />
+                        <li><a href="https://twitter.com/Mages_DAO" target="_blank"
+                                rel="noopener noreferrer">Twitter</a></li> <br />
+                        <li><a href="https://discord.gg/7pAwWAFG" target="_blank"
+                               rel="noopener noreferrer">Discord</a></li> <br />
                         <li><Link to="/swapui" target="_blank"
                                rel="/">SwapUI</Link></li> <br />
                         <li><Link to="/staking" target="_blank"
