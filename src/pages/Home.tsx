@@ -244,6 +244,7 @@ const BorderLinearProgress = styled(LinearProgress)`
 
 const GoldTitle = styled.h2`
   color: var(--title-text-color);
+  
 `;
 
 const LogoAligner = styled.div`
@@ -660,11 +661,11 @@ const Home = (props: IHomePageProps) => {
                     <Des elevation={1}>
                         <LogoAligner><GoldTitle>MagesDAO</GoldTitle></LogoAligner>
                         <p> Mages is an NFT community meant for builders & degens with long term goals.</p>
-                        <p> We plan on releasing multiple rounds of Mages, first round will be 100 mages.</p>
+                        <p> We plan on releasing multiple rounds of Mages, with the initial round at 100 mages.</p>
                     </Des>
                     <Des elevation={1}>
                         <LogoAligner><GoldTitle>Project Future</GoldTitle></LogoAligner>
-                        <p> As this project develops, staking & other systems will be looked into, and to be implemented. </p>
+                        <p> As this project develops, staking & other systems will be looked into, and to be implemented as seen fit. </p>
                         <p> These systems may include staking, tokens, auctions, a game, airdrops, and any innovative contracts to Solana. </p>
                     </Des>
                 </DesContainer>
