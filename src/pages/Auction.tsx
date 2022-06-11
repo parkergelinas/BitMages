@@ -261,12 +261,16 @@ const DesContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-export interface IAuctionPageProps {};
+export interface IAuctionPageProps {
+  connection: anchor.web3.Connection;
+  txTimeout: number;
+  rpcHost: string;
+};
 
 const AuctionPage = (props: IAuctionPageProps) => {
     const [message, setMessage] = useState('');
     const { number } = useParams();
-    
+
     const [balance, setBalance] = useState<number>();
     const wallet = useAnchorWallet();
     const [price, setPrice] = useState(0);
@@ -284,13 +288,6 @@ const AuctionPage = (props: IAuctionPageProps) => {
     });
 
 
-    useEffect(() => {
-        if (number) {
-            setMessage('The number is ' + number);
-        } else {
-            setMessage('No number provided');
-        }
-    }, []);
 
     return (
         <main>
@@ -320,61 +317,18 @@ const AuctionPage = (props: IAuctionPageProps) => {
                 <MintContainer>
                   <Bar>Auction Bar Test</Bar>
                       <TestBox>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                                Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                              <Card>
-                              Buy
-                              </Card>
-                            
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
                       </TestBox>
                 </MintContainer>
             </MainContainer>

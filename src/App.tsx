@@ -112,8 +112,14 @@ const App = () => {
                                 rpcHost={rpcHost}/>} />
                         </Route>
                         <Route path='/auctions'>
-                            <Route index element={<AuctionPage />} />
-                            <Route path=":number" element={<AuctionPage />} />
+                            <Route index element={<AuctionPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
+                            <Route path=":number" element={<AuctionPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
                         </Route>
                         <Route path='/swapui'>
                             <Route index element={<SwapPage />} />
