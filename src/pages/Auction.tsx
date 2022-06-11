@@ -329,6 +329,9 @@ const AuctionPage = (props: IAuctionPageProps) => {
                               <Card>Buy</Card>
                               <Card>Buy</Card>
                               <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
+                              <Card>Buy</Card>
                       </TestBox>
                 </MintContainer>
             </MainContainer>
