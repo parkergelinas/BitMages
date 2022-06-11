@@ -30,7 +30,6 @@ import AuctionPage from "./pages/Auction";
 import StakingPage from "./pages/Staking";
 import SwapPage from "./pages/SwapUI";
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
