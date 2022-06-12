@@ -178,7 +178,7 @@ const TestBox = styled(Box)`
 
 const RecentSales = styled(Box)`
   min-height: 700px;
-  min-width: 100px;
+  min-width: 200px;
   max-width: 300px;
   align-items: center;
   position: relative;
@@ -210,7 +210,7 @@ const RecentSales = styled(Box)`
 
 const RecentBids = styled(Box)`
   min-height: 700px;
-  min-width: 100px;
+  min-width: 200px;
   max-width: 300px;
   align-items: center;
   position: relative;
