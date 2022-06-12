@@ -70,11 +70,11 @@ const Wallet = styled.ul`
   animation-delay: 0s;
   animation-duration: 1.2s;
   animation-iteration-count: 1;
-  animation-name: moveLeft;
-  @keyframes moveLeft {
+  animation-name: fadeInAndmoveLeft;
+  @keyframes fadeInAndmoveLeft {
   from {
     opacity: 0;
-    transform: translateX(400px);
+    transform: translateX(200px);
   }
   to {
     opacity: 1;
@@ -242,10 +242,10 @@ const Menu = styled.ul`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1s;
+  animation-duration: 1.2s;
   animation-iteration-count: 1;
-  animation-name: moveDown;
-  @keyframes moveDown{
+  animation-name: moveDownAndfadeIn;
+  @keyframes moveDownAndfadeIn{
   from {
     opacity: 0;
     transform: translateY(-100px);
