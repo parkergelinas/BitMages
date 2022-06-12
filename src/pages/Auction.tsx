@@ -143,7 +143,7 @@ const NFT = styled(Paper)`
 const TestBox = styled(Box)`
   min-height: 700px;
   min-width: 500px;
-  max-width: 1350px;
+  max-width: 1250px;
   flex-direction: row;
   align-items: center;
   display: flex;
@@ -178,7 +178,7 @@ const TestBox = styled(Box)`
 const RecentBidsAndSales = styled(Box)`
   min-height: 600px;
   min-width: 100px;
-  max-width: 200px;
+  max-width: 300px;
   align-items: center;
   display: flex;
   justify-content: center;
