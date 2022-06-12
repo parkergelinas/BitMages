@@ -26,7 +26,6 @@ const MainContainer = styled.div`
   justify-content: center;
 `;
 
-
 const WalletContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -70,7 +69,7 @@ const Wallet = styled.ul`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: moveLeft;
   @keyframes moveLeft {
@@ -161,7 +160,7 @@ const TestBox = styled(Box)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveUp;
   @keyframes fadeInAndmoveUp {
@@ -193,7 +192,7 @@ const RecentSales = styled(Box)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveLeft;
   @keyframes fadeInAndmoveLeft {
@@ -225,7 +224,7 @@ const RecentBids = styled(Box)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveRight;
   @keyframes fadeInAndmoveRight {
@@ -323,7 +322,7 @@ const Logo = styled.div`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: moveRight;
   @keyframes moveRight {

@@ -68,7 +68,7 @@ const Wallet = styled.ul`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveLeft;
   @keyframes fadeInAndmoveLeft {
@@ -105,7 +105,7 @@ const MintConnectButton = styled(WalletMultiButton)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeIn;
   @keyframes fadeIn {
@@ -153,7 +153,7 @@ const Des = styled(NFT)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveUp;
   @keyframes fadeInAndmoveUp {
@@ -213,7 +213,7 @@ const Logo = styled.div`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: moveRight;
   @keyframes moveRight {
@@ -242,7 +242,7 @@ const Menu = styled.ul`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: moveDownAndfadeIn;
   @keyframes moveDownAndfadeIn{
@@ -322,7 +322,7 @@ const MintContainer = styled.div`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveUp;
   @keyframes fadeInAndmoveUp {
