@@ -407,11 +407,10 @@ const SolExplorerLink = styled.a`
 `;
 
 const MintContainer = styled.div`
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   align-content: center;
   justify-content: center;
-  flex: auto;
   flex-wrap: wrap;
   gap: 20px;
 `;
