@@ -178,7 +178,7 @@ const TestBox = styled(Box)`
 const RecentBidsAndSales = styled(Box)`
   min-height: 600px;
   min-width: 100px;
-  max-width: 300px;
+  max-width: 200px;
   align-items: center;
   display: flex;
   justify-content: center;
