@@ -64,6 +64,35 @@ const Wallet = styled.ul`
   flex: 0 1 auto;
   margin: 0 auto;
   padding: 0;
+  position: relative;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveLeft;
+  @keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+`;
+
+const MenuConnectButton = styled(WalletMultiButton)`
+  border-radius: 18px !important;
+  padding: 6px 16px;
+  background-color: #E09EF3;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  text-shadow: 2px 2px 3px #7e7e7e;
+  flex: 0 0 auto;
 `;
 
 const Price = styled(Chip)`
@@ -90,7 +119,7 @@ const BorderLinearProgress = styled(LinearProgress)`
   border: 2px solid white;
   box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
   background-color:var(--main-text-color) !important;
-  
+
   > div.MuiLinearProgress-barColorPrimary{
     background-color:var(--title-text-color) !important;
   }
@@ -101,16 +130,8 @@ const BorderLinearProgress = styled(LinearProgress)`
   }
 `;
 
-const ConnectButton = styled(WalletMultiButton)`
-  border-radius: 18px !important;
-  padding: 6px 16px;
-  background-color: #E09EF3;
-  margin: 0 auto;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
 
 const NFT = styled(Paper)`
-  min-width: 1750px;
   align-items: center;
   display: flex;
   padding: 5px 20px;
@@ -120,31 +141,104 @@ const NFT = styled(Paper)`
 `;
 
 const TestBox = styled(Box)`
-  min-width: 200px;
-  min-height: 600px;
+  min-height: 700px;
+  min-width: 500px;
+  max-width: 1350px;
   flex-direction: row;
   align-items: center;
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: relative;
+  flex: auto;
   border-radius: 5px;
   padding: 5px 10px;
-  flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveUp;
+  @keyframes fadeInAndmoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+`;
+
+const RecentBidsAndSales = styled(Box)`
+  min-height: 600px;
+  min-width: 100px;
+  max-width: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  flex: auto;
+  position: relative;
+  margin-right: 45px;
+  background-color: #E09EF3 !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveLeft;
+  @keyframes fadeInAndmoveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 `;
 
 const Bar = styled(Box)`
-  min-height: 100px;
-  min-width: 200px;
+  height: 100px;
+  min-width: 600px;
+  max-width: 1750px;
   align-items: center;
   display: inline-flex;
   justify-content: center;
   border-radius: 5px;
-  padding: 1px 10px;
-  flex: 1 1 auto;
+  position: relative;
+  flex: auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveDown;
+  @keyframes fadeInAndmoveDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 `;
 
 const Des = styled(NFT)`
@@ -191,6 +285,25 @@ const Card = styled(Paper)`
 const Logo = styled.div`
   flex: 0 0 auto;
 
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveRight;
+  @keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+
   img {
     height: 60px;
   }
@@ -198,8 +311,28 @@ const Logo = styled.div`
 const Menu = styled.ul`
   list-style: none;
   display: inline-flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   justify-content: center;
+  position: relative;
+  text-shadow: 3px 2px 3px #7e7e7e;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveDownAndfadeIn;
+  @keyframes moveDownAndfadeIn{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 
   li {
     margin: 7px 12px 1px;
@@ -246,11 +379,13 @@ const SolExplorerLink = styled.a`
 `;
 
 const MintContainer = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
   flex: 1 1 auto;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 20px;
 `;
 
 const DesContainer = styled.div`
@@ -268,24 +403,42 @@ export interface IAuctionPageProps {
 };
 
 const AuctionPage = (props: IAuctionPageProps) => {
-    const [message, setMessage] = useState('');
-    const { number } = useParams();
+  const [balance, setBalance] = useState<number>();
+  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+  const [isActive, setIsActive] = useState(false); // true when countdown completes or whitelisted
+  const [solanaExplorerLink, setSolanaExplorerLink] = useState<string>("");
+  const [itemsAvailable, setItemsAvailable] = useState(0);
+  const [itemsRedeemed, setItemsRedeemed] = useState(0);
+  const [itemsRemaining, setItemsRemaining] = useState(0);
+  const [isSoldOut, setIsSoldOut] = useState(false);
+  const [payWithSplToken, setPayWithSplToken] = useState(false);
+  const [price, setPrice] = useState(0);
+  const [priceLabel, setPriceLabel] = useState<string>("SOL");
+  const [whitelistPrice, setWhitelistPrice] = useState(0);
+  const [whitelistEnabled, setWhitelistEnabled] = useState(false);
+  const [isBurnToken, setIsBurnToken] = useState(false);
+  const [whitelistTokenBalance, setWhitelistTokenBalance] = useState(0);
+  const [isEnded, setIsEnded] = useState(false);
+  const [endDate, setEndDate] = useState<Date>();
+  const [isPresale, setIsPresale] = useState(false);
+  const [isWLOnly, setIsWLOnly] = useState(false);
 
-    const [balance, setBalance] = useState<number>();
-    const wallet = useAnchorWallet();
-    const [price, setPrice] = useState(0);
-    const [isEnded, setIsEnded] = useState(false);
-    const [priceLabel, setPriceLabel] = useState<string>("SOL");
-    const [isActive, setIsActive] = useState(false);
-    const [isSoldOut, setIsSoldOut] = useState(false);
-    const [payWithSplToken, setPayWithSplToken] = useState(false);
-    const [itemsRemaining, setItemsRemaining] = useState(0);
+  const [alertState, setAlertState] = useState<AlertState>({
+      open: false,
+      message: "",
+      severity: undefined,
+  });
 
-    const [alertState, setAlertState] = useState<AlertState>({
-        open: false,
-        message: "",
-        severity: undefined,
-    });
+  const wallet = useAnchorWallet();
+
+    useEffect(() => {
+      (async () => {
+          if (wallet) {
+              const balance = await props.connection.getBalance(wallet.publicKey);
+              setBalance(balance / LAMPORTS_PER_SOL);
+          }
+      })();
+    }, [wallet, props.connection]);
 
 
 
@@ -309,30 +462,36 @@ const AuctionPage = (props: IAuctionPageProps) => {
                     </Menu>
                     <Wallet>
                         {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton/></WalletAmount> :
-                            <ConnectButton>Connect Wallet</ConnectButton>}
+                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<MenuConnectButton/></WalletAmount> :
+                            <MenuConnectButton>Connect Wallet</MenuConnectButton>}
                     </Wallet>
                 </WalletContainer>
                 <br />
                 <MintContainer>
-                  <Bar>Auction Bar Test</Bar>
-                      <TestBox>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                              <Card>Buy</Card>
-                      </TestBox>
+                  <Bar>Auction Navbar Test</Bar>
+                  <TestBox>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                    <Card>Buy</Card>
+                  </TestBox>
+                  <RecentBidsAndSales> Recent Bids and Sales </RecentBidsAndSales>
                 </MintContainer>
             </MainContainer>
             <Snackbar

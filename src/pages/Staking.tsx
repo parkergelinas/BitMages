@@ -64,6 +64,33 @@ const Wallet = styled.ul`
   flex: 0 1 auto;
   margin: 0 auto;
   padding: 0;
+  position: relative;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveLeft;
+  @keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+`;
+
+const MenuConnectButton = styled(WalletMultiButton)`
+  border-radius: 18px !important;
+  padding: 6px 16px;
+  background-color: #E09EF3;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 `;
 
 const Price = styled(Chip)`
@@ -101,13 +128,6 @@ const BorderLinearProgress = styled(LinearProgress)`
   }
 `;
 
-const ConnectButton = styled(WalletMultiButton)`
-  border-radius: 18px !important;
-  padding: 6px 16px;
-  background-color: #E09EF3;
-  margin: 0 auto;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
 
 const NFT = styled(Paper)`
   min-width: 1750px;
@@ -122,20 +142,39 @@ const NFT = styled(Paper)`
 const TestBox = styled(Box)`
   min-height: 800px;
   min-width: 500px;
+  max-width: 1500px;
   flex-direction: column;
   align-items: center;
   display: inline-flex;
   justify-content: center;
   border-radius: 5px;
   padding: 5px 10px;
-  flex: 1 1 auto;
+  flex: auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveLeft;
+  @keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 `;
 
 const StakeBox = styled(Box)`
   min-height: 800px;
-  min-width: 100px;
+  min-width: 300px;
   max-width: 300px;
   align-items: center;
   display: inline-flex;
@@ -145,6 +184,22 @@ const StakeBox = styled(Box)`
   flex: auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveRight;
+  @keyframes moveRight {
+    from {
+      transform: translateX(-600px);
+    }
+    to {
+      transform: translateX(0px);
+    }
+  }
 `;
 
 const Des = styled(NFT)`
@@ -190,6 +245,25 @@ const Card = styled(Paper)`
 const Logo = styled.div`
   flex: 0 0 auto;
 
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveRight;
+  @keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+
   img {
     height: 60px;
   }
@@ -199,6 +273,26 @@ const Menu = styled.ul`
   display: inline-flex;
   flex: 1 0 auto;
   justify-content: center;
+  text-shadow: 3px 2px 3px #7e7e7e;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: moveDownAndfadeIn;
+  @keyframes moveDownAndfadeIn{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 
   li {
     margin: 7px 12px 1px;
@@ -260,14 +354,32 @@ const DesContainer = styled.div`
   margin-bottom: 40px;
 `;
 
-export interface IStakingPageProps {};
+export interface IStakingPageProps {
+  connection: anchor.web3.Connection;
+  txTimeout: number;
+  rpcHost: string;
+};
 
 const StakingPage = (props: IStakingPageProps) => {
-    const [message, setMessage] = useState('');
-    const { number } = useParams();
-
     const [balance, setBalance] = useState<number>();
-    const wallet = useAnchorWallet();
+    const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+    const [isActive, setIsActive] = useState(false); // true when countdown completes or whitelisted
+    const [solanaExplorerLink, setSolanaExplorerLink] = useState<string>("");
+    const [itemsAvailable, setItemsAvailable] = useState(0);
+    const [itemsRedeemed, setItemsRedeemed] = useState(0);
+    const [itemsRemaining, setItemsRemaining] = useState(0);
+    const [isSoldOut, setIsSoldOut] = useState(false);
+    const [payWithSplToken, setPayWithSplToken] = useState(false);
+    const [price, setPrice] = useState(0);
+    const [priceLabel, setPriceLabel] = useState<string>("SOL");
+    const [whitelistPrice, setWhitelistPrice] = useState(0);
+    const [whitelistEnabled, setWhitelistEnabled] = useState(false);
+    const [isBurnToken, setIsBurnToken] = useState(false);
+    const [whitelistTokenBalance, setWhitelistTokenBalance] = useState(0);
+    const [isEnded, setIsEnded] = useState(false);
+    const [endDate, setEndDate] = useState<Date>();
+    const [isPresale, setIsPresale] = useState(false);
+    const [isWLOnly, setIsWLOnly] = useState(false);
 
     const [alertState, setAlertState] = useState<AlertState>({
         open: false,
@@ -275,14 +387,16 @@ const StakingPage = (props: IStakingPageProps) => {
         severity: undefined,
     });
 
+    const wallet = useAnchorWallet();
 
     useEffect(() => {
-        if (number) {
-            setMessage('The number is ' + number);
-        } else {
-            setMessage('No number provided');
-        }
-    }, []);
+      (async () => {
+          if (wallet) {
+              const balance = await props.connection.getBalance(wallet.publicKey);
+              setBalance(balance / LAMPORTS_PER_SOL);
+          }
+      })();
+    }, [wallet, props.connection]);
 
     return (
         <main>
@@ -304,8 +418,8 @@ const StakingPage = (props: IStakingPageProps) => {
                     </Menu>
                     <Wallet>
                         {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton/></WalletAmount> :
-                            <ConnectButton>Connect Wallet</ConnectButton>}
+                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<MenuConnectButton/></WalletAmount> :
+                            <MenuConnectButton>Connect Wallet</MenuConnectButton>}
                     </Wallet>
                 </WalletContainer>
                 <br />

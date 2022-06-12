@@ -62,14 +62,62 @@ const Wallet = styled.ul`
   flex: 0 1 auto;
   margin: 0 auto;
   padding: 0;
+  position: relative;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveLeft;
+  @keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 `;
 
-const ConnectButton = styled(WalletMultiButton)`
+const MenuConnectButton = styled(WalletMultiButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
   background-color: #E09EF3;
   margin: 0 auto;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  text-shadow: 2px 2px 3px #7e7e7e;
+`;
+
+
+const MintConnectButton = styled(WalletMultiButton)`
+  border-radius: 18px !important;
+  padding: 6px 16px;
+  background-color: #E09EF3;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  text-shadow: 2px 2px 3px #7e7e7e;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeIn;
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 `;
 
 const NFT = styled(Paper)`
@@ -78,12 +126,48 @@ const NFT = styled(Paper)`
   flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  text-shadow: 2px 2px 3px #3f3f3f;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: fadeIn;
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 `;
 
 const Des = styled(NFT)`
   text-align: left;
+  text-shadow: 2px 2px 3px #3f3f3f;
   padding-top: 0px;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveUp;
+  @keyframes fadeInAndmoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 `;
+
 
 
 const Card = styled(Paper)`
@@ -125,6 +209,24 @@ const MintButtonContainer = styled.div`
 const Logo = styled.div`
   flex: 0 0 auto;
 
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveRight;
+  @keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
   img {
     height: 60px;
   }
@@ -134,6 +236,25 @@ const Menu = styled.ul`
   display: inline-flex;
   flex: 1 0 auto;
   justify-content: center;
+  text-shadow: 2px 2px 3px #7e7e7e;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: moveDown;
+  @keyframes moveDown{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 
   li {
     margin: 7px 12px 1px;
@@ -196,6 +317,24 @@ const MintContainer = styled.div`
   flex: 1 1 auto;
   flex-wrap: wrap;
   gap: 20px;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveUp;
+  @keyframes fadeInAndmoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 `;
 
 const DesContainer = styled.div`
@@ -225,13 +364,13 @@ const Image = styled.img`
 `;
 
 const BorderLinearProgress = styled(LinearProgress)`
-  margin: 20px;
-  height: 10px !important;
-  border-radius: 30px;
+  margin: 10px;
+  height: 15px !important;
+  border-radius: 5px;
   border: 2px solid white;
   box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
-  background-color:var(--main-text-color) !important;
-  
+  background-color: #7d6686 !important;
+
   > div.MuiLinearProgress-barColorPrimary{
     background-color:var(--title-text-color) !important;
   }
@@ -244,8 +383,8 @@ const BorderLinearProgress = styled(LinearProgress)`
 
 const GoldTitle = styled.h2`
   color: var(--title-text-color);
-  
 `;
+
 
 const LogoAligner = styled.div`
   display: flex;
@@ -562,8 +701,8 @@ const Home = (props: IHomePageProps) => {
                     </Menu>
                     <Wallet>
                         {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton /></WalletAmount> :
-                            <ConnectButton>Connect Wallet</ConnectButton>}
+                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<MenuConnectButton /></WalletAmount> :
+                            <MenuConnectButton>Connect Wallet</MenuConnectButton>}
                     </Wallet>
                 </WalletContainer>
                 <br />
@@ -607,7 +746,7 @@ const Home = (props: IHomePageProps) => {
                                         renderer={renderGoLiveDateCounter}
                                     />) : (
                                     !wallet ? (
-                                        <ConnectButton>Connect Wallet</ConnectButton>
+                                        <MintConnectButton>Connect Wallet</MintConnectButton>
                                     ) : (!isWLOnly || whitelistTokenBalance > 0) ?
                                         candyMachine?.state.gatekeeper &&
                                             wallet.publicKey &&

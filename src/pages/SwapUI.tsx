@@ -64,6 +64,34 @@ const Wallet = styled.ul`
   flex: 0 1 auto;
   margin: 0 auto;
   padding: 0;
+  position: relative;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: moveLeft;
+  @keyframes moveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+`;
+
+const MenuConnectButton = styled(WalletMultiButton)`
+  border-radius: 18px !important;
+  padding: 6px 16px;
+  background-color: #E09EF3;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  text-shadow: 2px 2px 3px #7e7e7e;
 `;
 
 const Price = styled(Chip)`
@@ -101,14 +129,6 @@ const BorderLinearProgress = styled(LinearProgress)`
   }
 `;
 
-const ConnectButton = styled(WalletMultiButton)`
-  border-radius: 18px !important;
-  padding: 6px 16px;
-  background-color: #E09EF3;
-  margin: 0 auto;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
-
 const NFT = styled(Paper)`
   min-width: 1750px;
   align-items: center;
@@ -121,18 +141,137 @@ const NFT = styled(Paper)`
 
 const TestBox = styled(Box)`
   min-height: 800px;
-  min-width: 200px;
-  flex-direction: column;
+  min-width: 500px;
+  max-width: 1800px;
+
+  flex-direction: row;
   align-items: center;
-  align-content: center;
-  position: relative;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
-  border-radius: 5px;
+  flex: auto;
+  position: relative;
   margin: 0px;
-  padding: 5px 10px;
+  border-radius: 5px;
+  padding: 10px 20px;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveUp;
+  @keyframes fadeInAndmoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+`;
+
+const TestBox2 = styled(Box)`
+  min-height: 700px;
+  min-width: 500px;
+  max-width: 1200px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  flex: auto;
+  background-color: #E09EF3 !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveUp;
+  @keyframes fadeInAndmoveUp {
+  from {
+    opacity: 0;
+    transform: translateY(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+`;
+
+const RecentSwapsLeft = styled(Box)`
+  min-height: 600px;
+  min-width: 200px;
+  max-width: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 5px;
+  margin-right: 30px;
+  flex: auto;
+  background-color:  #E09EF3 !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveRight;
+  @keyframes fadeInAndmoveRight {
+    from {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+`;
+
+const RecentSwapsRight = styled(Box)`
+  min-height: 600px;
+  min-width: 200px;
+  max-width: 300px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 5px;
+  margin-left: 30px;
+  flex: auto;
+  background-color:  #E09EF3 !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveLeft;
+  @keyframes fadeInAndmoveLeft {
+    from {
+      transform: translateX(500px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const Bar = styled(Box)`
@@ -181,6 +320,8 @@ const Card = styled(Paper)`
   min-width: 500px;
   min-height: 600px;
   padding: 20px 20px;
+
+
   h1{
     margin:0px;
   }
@@ -192,15 +333,57 @@ const Card = styled(Paper)`
 const Logo = styled.div`
   flex: 0 0 auto;
 
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.1s;
+  animation-iteration-count: 1;
+  animation-name: moveRight;
+  @keyframes moveRight {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+
   img {
     height: 60px;
   }
 `;
 const Menu = styled.ul`
   list-style: none;
-  display: inline-flex;
-  flex: 1 0 auto;
+  flex-direction: row;
+  align-items: center;
+  display: flex;
   justify-content: center;
+  flex: auto;
+  position: relative;
+  text-shadow: 3px 2px 3px #7e7e7e;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-name: moveDownAndfadeIn;
+  @keyframes moveDownAndfadeIn{
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 
   li {
     margin: 7px 12px 1px;
@@ -257,34 +440,53 @@ const MintContainer = styled.div`
 const DesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   gap: 20px;
-  margin-bottom: 40px;
 `;
 
-export interface ISwapUIPageProps {};
+export interface ISwapUIPageProps {
+  connection: anchor.web3.Connection;
+  txTimeout: number;
+  rpcHost: string;
+};
 
 const SwapPage = (props: ISwapUIPageProps) => {
-    const [message, setMessage] = useState('');
-    const { number } = useParams();
+  const [balance, setBalance] = useState<number>();
+  const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
+  const [isActive, setIsActive] = useState(false); // true when countdown completes or whitelisted
+  const [solanaExplorerLink, setSolanaExplorerLink] = useState<string>("");
+  const [itemsAvailable, setItemsAvailable] = useState(0);
+  const [itemsRedeemed, setItemsRedeemed] = useState(0);
+  const [itemsRemaining, setItemsRemaining] = useState(0);
+  const [isSoldOut, setIsSoldOut] = useState(false);
+  const [payWithSplToken, setPayWithSplToken] = useState(false);
+  const [price, setPrice] = useState(0);
+  const [priceLabel, setPriceLabel] = useState<string>("SOL");
+  const [whitelistPrice, setWhitelistPrice] = useState(0);
+  const [whitelistEnabled, setWhitelistEnabled] = useState(false);
+  const [isBurnToken, setIsBurnToken] = useState(false);
+  const [whitelistTokenBalance, setWhitelistTokenBalance] = useState(0);
+  const [isEnded, setIsEnded] = useState(false);
+  const [endDate, setEndDate] = useState<Date>();
+  const [isPresale, setIsPresale] = useState(false);
+  const [isWLOnly, setIsWLOnly] = useState(false);
 
-    const [balance, setBalance] = useState<number>();
-    const wallet = useAnchorWallet();
+  const [alertState, setAlertState] = useState<AlertState>({
+      open: false,
+      message: "",
+      severity: undefined,
+  });
 
-    const [alertState, setAlertState] = useState<AlertState>({
-        open: false,
-        message: "",
-        severity: undefined,
-    });
+  const wallet = useAnchorWallet();
 
-
-    useEffect(() => {
-        if (number) {
-            setMessage('The number is ' + number);
-        } else {
-            setMessage('No number provided');
+  useEffect(() => {
+    (async () => {
+        if (wallet) {
+            const balance = await props.connection.getBalance(wallet.publicKey);
+            setBalance(balance / LAMPORTS_PER_SOL);
         }
-    }, []);
+    })();
+  }, [wallet, props.connection]);
 
     return (
         <main>
@@ -306,18 +508,24 @@ const SwapPage = (props: ISwapUIPageProps) => {
                     </Menu>
                     <Wallet>
                         {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton/></WalletAmount> :
-                            <ConnectButton>Connect Wallet</ConnectButton>}
+                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<MenuConnectButton/></WalletAmount> :
+                            <MenuConnectButton>Connect Wallet</MenuConnectButton>}
                     </Wallet>
                 </WalletContainer>
                 <br />
-                <DesContainer>
-                  <TestBox>
-                    <Card>
-                      SwapUI
-                    </Card>
-                  </TestBox>
-                </DesContainer>
+                <MintContainer>
+                    <TestBox>
+                      <RecentSwapsLeft>
+                        Recent Swaps Box
+                      </RecentSwapsLeft>
+                      <TestBox2>
+                        Test SwapUI Box
+                      </TestBox2>
+                      <RecentSwapsRight>
+                        Recent Swaps Box
+                      </RecentSwapsRight>
+                    </TestBox>
+                </MintContainer>
             </MainContainer>
             <Snackbar
                 open={alertState.open}

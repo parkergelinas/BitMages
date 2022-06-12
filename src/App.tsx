@@ -122,12 +122,24 @@ const App = () => {
                                 rpcHost={rpcHost} />} />
                         </Route>
                         <Route path='/swapui'>
-                            <Route index element={<SwapPage />} />
-                            <Route path=":number" element={<SwapPage />} />
+                            <Route index element={<SwapPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
+                            <Route path=":number" element={<SwapPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
                         </Route>
                         <Route path='/staking'>
-                            <Route index element={<StakingPage />} />
-                            <Route path=":number" element={<StakingPage />} />
+                            <Route index element={<StakingPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
+                            <Route path=":number" element={<StakingPage
+                                connection={connection}
+                                txTimeout={txTimeout}
+                                rpcHost={rpcHost} />} />
                         </Route>
                     </Routes>
                 </Router>
