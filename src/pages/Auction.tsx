@@ -142,14 +142,16 @@ const NFT = styled(Paper)`
 
 const TestBox = styled(Box)`
   min-height: 700px;
-  min-width: 500px;
+  min-width: 600px;
   max-width: 1200px;
-  flex-direction: row;
   align-items: center;
+  position: relative;
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
   flex: auto;
+  grid: auto-flow 50px;
   border-radius: 5px;
   padding: 5px 10px;
   background-color: var(--card-background-color) !important;
@@ -175,10 +177,11 @@ const TestBox = styled(Box)`
 `;
 
 const RecentSales = styled(Box)`
-  min-height: 600px;
+  min-height: 700px;
   min-width: 100px;
   max-width: 200px;
   align-items: center;
+  position: relative;
   display: flex;
   justify-content: center;
   border-radius: 5px;
@@ -206,14 +209,15 @@ const RecentSales = styled(Box)`
 `;
 
 const RecentBids = styled(Box)`
-  min-height: 600px;
+  min-height: 700px;
   min-width: 100px;
   max-width: 200px;
   align-items: center;
+  position: relative;
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  flex: auto;
+  flex: 1 1 auto;
   background-color: #E09EF3 !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 
@@ -223,11 +227,11 @@ const RecentBids = styled(Box)`
   animation-delay: 0s;
   animation-duration: 1.2s;
   animation-iteration-count: 1;
-  animation-name: fadeInAndmoveLeft;
-  @keyframes fadeInAndmoveLeft {
+  animation-name: fadeInAndmoveRight;
+  @keyframes fadeInAndmoveRight {
   from {
     opacity: 0;
-    transform: translateX(150px);
+    transform: translateX(-150px);
   }
   to {
     opacity: 1;
@@ -238,14 +242,13 @@ const RecentBids = styled(Box)`
 
 const Bar = styled(Box)`
   height: 100px;
-  min-width: 600px;
-  max-width: 1750px;
+  min-width: 850px;
   align-items: center;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
-  border-radius: 5px;
   position: relative;
-  flex: auto;
+  border-radius: 5px;
+  flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 
@@ -282,7 +285,9 @@ const SideMenu = styled(NFT)`
 `;
 
 const BuyButton = styled(TestButton)`
-  border-radius: 18px !important;
+  border-radius: 8px !important;
+  position: absolute;
+  bottom: -18px;
   padding: 6px 16px;
   background-color: #E09EF3;
   margin: 0 auto;
@@ -290,7 +295,8 @@ const BuyButton = styled(TestButton)`
 `;
 
 const Card = styled(Paper)`
-  display: inline-flex;
+  display: flex;
+  position: relative;
   flex: 0 1 auto;
   flex-wrap: wrap;
   flex-direction: row;
@@ -409,18 +415,19 @@ const SolExplorerLink = styled.a`
 const MintContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-content: center;
-  justify-content: center;
+  flex: 0 1 auto;
   flex-wrap: wrap;
   gap: 20px;
 `;
 
 const DesContainer = styled.div`
+  flex-direction: row;
+  align-items: flex-start;
   display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+  margin: 5px 50px;
+  flex: auto;
+  border-radius: 5px;
   gap: 20px;
-  margin-bottom: 40px;
 `;
 
 export interface IAuctionPageProps {
@@ -496,30 +503,77 @@ const AuctionPage = (props: IAuctionPageProps) => {
                 <br />
                 <MintContainer>
                   <Bar>Auction Navbar Test</Bar>
-                  <TestBox>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                    <Card>Buy</Card>
-                  </TestBox>
-                  <RecentBids> Recent Bids </RecentBids>
-                  <RecentSales> Recent Sales </RecentSales>
+                  <DesContainer>
+                    <RecentBids> Recent Bids </RecentBids>
+                    <TestBox>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+                      <Card>
+                        Auction Item
+                        <BuyButton>Buy</BuyButton>
+                      </Card>
+
+                    </TestBox>
+                    <RecentSales> Recent Sales </RecentSales>
+                  </DesContainer>
                 </MintContainer>
             </MainContainer>
             <Snackbar
