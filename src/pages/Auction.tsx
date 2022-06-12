@@ -143,13 +143,12 @@ const NFT = styled(Paper)`
 const TestBox = styled(Box)`
   min-height: 700px;
   min-width: 500px;
-  max-width: 1250px;
+  max-width: 1200px;
   flex-direction: row;
   align-items: center;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: relative;
   flex: auto;
   border-radius: 5px;
   padding: 5px 10px;
@@ -175,17 +174,46 @@ const TestBox = styled(Box)`
 }
 `;
 
-const RecentBidsAndSales = styled(Box)`
+const RecentSales = styled(Box)`
   min-height: 600px;
   min-width: 100px;
-  max-width: 300px;
+  max-width: 200px;
   align-items: center;
   display: flex;
   justify-content: center;
   border-radius: 5px;
   flex: auto;
-  position: relative;
-  margin-right: 45px;
+  background-color: #E09EF3 !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-play-state: running;
+  animation-delay: 0s;
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+  animation-name: fadeInAndmoveLeft;
+  @keyframes fadeInAndmoveLeft {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+`;
+
+const RecentBids = styled(Box)`
+  min-height: 600px;
+  min-width: 100px;
+  max-width: 200px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  flex: auto;
   background-color: #E09EF3 !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 
@@ -382,8 +410,8 @@ const MintContainer = styled.div`
   display: inline-flex;
   flex-direction: row;
   align-content: center;
-  justify-content: space-between;
-  flex: 1 1 auto;
+  justify-content: center;
+  flex: auto;
   flex-wrap: wrap;
   gap: 20px;
 `;
@@ -491,7 +519,8 @@ const AuctionPage = (props: IAuctionPageProps) => {
                     <Card>Buy</Card>
                     <Card>Buy</Card>
                   </TestBox>
-                  <RecentBidsAndSales> Recent Bids and Sales </RecentBidsAndSales>
+                  <RecentBids> Recent Bids </RecentBids>
+                  <RecentSales> Recent Sales </RecentSales>
                 </MintContainer>
             </MainContainer>
             <Snackbar
