@@ -226,12 +226,12 @@ const RecentSwapsLeft = styled(Box)`
   animation-timing-function: ease-in-out;
   animation-play-state: running;
   animation-delay: 0s;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveRight;
   @keyframes fadeInAndmoveRight {
     from {
-      transform: translateX(-500px);
+      transform: translateX(-200px);
       opacity: 0;
     }
     to {
@@ -264,7 +264,7 @@ const RecentSwapsRight = styled(Box)`
   animation-name: fadeInAndmoveLeft;
   @keyframes fadeInAndmoveLeft {
     from {
-      transform: translateX(500px);
+      transform: translateX(200px);
       opacity: 0;
     }
     to {
