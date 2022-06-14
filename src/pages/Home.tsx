@@ -212,6 +212,8 @@ const MintButtonContainer = styled.div`
 
 const Logo = styled.div`
   flex: 0 0 auto;
+  margin-top: 15px;
+  margin-left: 25px;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -232,15 +234,16 @@ const Logo = styled.div`
   }
 
   img {
-    height: 60px;
+    height: 40px;
   }
 `;
 const Menu = styled.ul`
   list-style: none;
   display: inline-flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   justify-content: center;
   text-shadow: 2px 2px 3px #7e7e7e;
+  margin-right: 70px;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -717,11 +720,11 @@ const Home = (props: IHomePageProps) => {
         <WalletContainer>
           <Logo>
             <a
-              href="https://magesdao.vercel.app/home"
+              href="https://bitmages.vercel.app/home"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img alt="" src="MagesDAO.png" />
+              <img alt="" src="BitMageLogo1.png" />
             </a>
           </Logo>
           <Menu>

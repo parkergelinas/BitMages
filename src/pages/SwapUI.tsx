@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import confetti from "canvas-confetti";
 import * as anchor from "@project-serum/anchor";
-import {LAMPORTS_PER_SOL, PublicKey} from "@solana/web3.js";
-import {useAnchorWallet} from "@solana/wallet-adapter-react";
-import {WalletMultiButton} from "@solana/wallet-adapter-react-ui";
-import {GatewayProvider} from '@civic/solana-gateway-react';
+import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { GatewayProvider } from "@civic/solana-gateway-react";
 import Countdown from "react-countdown";
-import {Snackbar, Paper, LinearProgress, Chip} from "@material-ui/core";
+import { Snackbar, Paper, LinearProgress, Chip } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import {toDate, AlertState} from '../utils';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import { TestButton } from '../components/Button';
+import { toDate, AlertState } from "../utils";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import { TestButton } from "../components/Button";
 
 const MainContainer = styled.div`
   display: flex;
@@ -25,7 +25,6 @@ const MainContainer = styled.div`
   text-align: center;
   justify-content: center;
 `;
-
 
 const WalletContainer = styled.div`
   display: flex;
@@ -41,10 +40,13 @@ const WalletAmount = styled.div`
   min-width: 48px;
   min-height: auto;
   border-radius: 22px;
-  background-color: #995EAA ;
-  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+  background-color: #995eaa;
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%),
+    0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
   box-sizing: border-box;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-weight: 500;
   line-height: 1.75;
   text-transform: uppercase;
@@ -74,41 +76,41 @@ const Wallet = styled.ul`
   animation-iteration-count: 1;
   animation-name: moveLeft;
   @keyframes moveLeft {
-  from {
-    opacity: 0;
-    transform: translateX(400px);
+    from {
+      opacity: 0;
+      transform: translateX(400px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
 `;
 
 const MenuConnectButton = styled(WalletMultiButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
-  background-color: #E09EF3;
+  background-color: #e09ef3;
   margin: 0 auto;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
   text-shadow: 2px 2px 3px #7e7e7e;
 `;
 
 const Price = styled(Chip)`
   position: absolute;
-  background-color:var(--main-text-color) !important;
-  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
+  background-color: var(--main-text-color) !important;
+  box-shadow: 5px 5px 40px 5px rgba(0, 0, 0, 0.5);
   margin: 5px;
   font-weight: bold;
-  font-size: .8em !important;
-  font-family: 'Press Start 2P', cursive !important;
+  font-size: 0.8em !important;
+  font-family: "Press Start 2P", cursive !important;
 `;
 
 const Image = styled.img`
   height: 400px;
   width: auto;
   border-radius: 7px;
-  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
+  box-shadow: 5px 5px 40px 5px rgba(0, 0, 0, 0.5);
 `;
 
 const BorderLinearProgress = styled(LinearProgress)`
@@ -116,16 +118,20 @@ const BorderLinearProgress = styled(LinearProgress)`
   height: 10px !important;
   border-radius: 30px;
   border: 2px solid white;
-  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
-  background-color:var(--main-text-color) !important;
-  
-  > div.MuiLinearProgress-barColorPrimary{
-    background-color:var(--title-text-color) !important;
+  box-shadow: 5px 5px 40px 5px rgba(0, 0, 0, 0.5);
+  background-color: var(--main-text-color) !important;
+
+  > div.MuiLinearProgress-barColorPrimary {
+    background-color: var(--title-text-color) !important;
   }
 
   > div.MuiLinearProgress-bar1Determinate {
     border-radius: 30px !important;
-    background-image: linear-gradient(270deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.5));
+    background-image: linear-gradient(
+      270deg,
+      rgba(255, 255, 255, 0.01),
+      rgba(255, 255, 255, 0.5)
+    );
   }
 `;
 
@@ -136,7 +142,7 @@ const NFT = styled(Paper)`
   padding: 5px 20px;
   flex: 0 1 auto;
   background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 `;
 
 const TestBox = styled(Box)`
@@ -154,7 +160,7 @@ const TestBox = styled(Box)`
   border-radius: 5px;
   padding: 10px 20px;
   background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -163,15 +169,15 @@ const TestBox = styled(Box)`
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveUp;
   @keyframes fadeInAndmoveUp {
-  from {
-    opacity: 0;
-    transform: translateY(150px);
+    from {
+      opacity: 0;
+      transform: translateY(150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
 `;
 
 const TestBox2 = styled(Box)`
@@ -186,8 +192,8 @@ const TestBox2 = styled(Box)`
   margin-top: 5px;
   border-radius: 5px;
   flex: auto;
-  background-color: #E09EF3 !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  background-color: #e09ef3 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -197,15 +203,15 @@ const TestBox2 = styled(Box)`
   animation-iteration-count: 1;
   animation-name: fadeInAndmoveUp;
   @keyframes fadeInAndmoveUp {
-  from {
-    opacity: 0;
-    transform: translateY(150px);
+    from {
+      opacity: 0;
+      transform: translateY(150px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
 `;
 
 const RecentSwapsLeft = styled(Box)`
@@ -219,8 +225,8 @@ const RecentSwapsLeft = styled(Box)`
   border-radius: 5px;
   margin-right: 30px;
   flex: auto;
-  background-color:  #E09EF3 !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  background-color: #e09ef3 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -252,8 +258,8 @@ const RecentSwapsRight = styled(Box)`
   border-radius: 5px;
   margin-left: 30px;
   flex: auto;
-  background-color:  #E09EF3 !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  background-color: #e09ef3 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -284,7 +290,7 @@ const Bar = styled(Box)`
   padding: 5px 10px;
   flex: auto;
   background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
 `;
 
 const Des = styled(NFT)`
@@ -302,7 +308,7 @@ const SideMenu = styled(NFT)`
 const BuyButton = styled(TestButton)`
   border-radius: 18px !important;
   padding: 6px 16px;
-  background-color: #E09EF3;
+  background-color: #e09ef3;
   margin: 0 auto;
   box-shadow: 5px 5px 5px 4em rgba(255, 255, 255, 0);
 `;
@@ -314,24 +320,25 @@ const Card = styled(Paper)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #E09EF3 !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+  background-color: #e09ef3 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22) !important;
   margin: 25px 10px;
   min-width: 500px;
   min-height: 600px;
   padding: 20px 20px;
 
-
-  h1{
-    margin:0px;
+  h1 {
+    margin: 0px;
   }
-  button{
+  button {
     padding: 10px 20px;
   }
 `;
 
 const Logo = styled.div`
   flex: 0 0 auto;
+  margin-top: 15px;
+  margin-left: 25px;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -341,19 +348,18 @@ const Logo = styled.div`
   animation-iteration-count: 1;
   animation-name: moveRight;
   @keyframes moveRight {
-  from {
-    opacity: 0;
-    transform: translateX(-200px);
+    from {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
 
   img {
-    height: 60px;
+    height: 40px;
   }
 `;
 const Menu = styled.ul`
@@ -365,6 +371,7 @@ const Menu = styled.ul`
   flex: auto;
   position: relative;
   text-shadow: 3px 2px 3px #7e7e7e;
+  margin-right: 70px;
 
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -373,17 +380,16 @@ const Menu = styled.ul`
   animation-duration: 1s;
   animation-iteration-count: 1;
   animation-name: moveDownAndfadeIn;
-  @keyframes moveDownAndfadeIn{
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
+  @keyframes moveDownAndfadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
 
   li {
     margin: 7px 12px 1px;
@@ -405,11 +411,11 @@ const Menu = styled.ul`
       }
     }
 
-    a:hover, a:active {
+    a:hover,
+    a:active {
       color: rgb(84, 55, 88);
       border-bottom: 4px solid var(--title-text-color);
     }
-
   }
 `;
 
@@ -448,7 +454,7 @@ export interface ISwapUIPageProps {
   connection: anchor.web3.Connection;
   txTimeout: number;
   rpcHost: string;
-};
+}
 
 const SwapPage = (props: ISwapUIPageProps) => {
   const [balance, setBalance] = useState<number>();
@@ -472,75 +478,109 @@ const SwapPage = (props: ISwapUIPageProps) => {
   const [isWLOnly, setIsWLOnly] = useState(false);
 
   const [alertState, setAlertState] = useState<AlertState>({
-      open: false,
-      message: "",
-      severity: undefined,
+    open: false,
+    message: "",
+    severity: undefined,
   });
 
   const wallet = useAnchorWallet();
 
   useEffect(() => {
     (async () => {
-        if (wallet) {
-            const balance = await props.connection.getBalance(wallet.publicKey);
-            setBalance(balance / LAMPORTS_PER_SOL);
-        }
+      if (wallet) {
+        const balance = await props.connection.getBalance(wallet.publicKey);
+        setBalance(balance / LAMPORTS_PER_SOL);
+      }
     })();
   }, [wallet, props.connection]);
 
-    return (
-        <main>
-            <MainContainer>
-                <WalletContainer>
-                    <Logo><a href="https://magesdao.vercel.app/home" target="_blank" rel="noopener noreferrer"><img alt=""
-                                                                                                          src="MagesDAO.png"/></a></Logo>
-                    <Menu>
-                        <li><a href="https://twitter.com/Mages_DAO" target="_blank"
-                                rel="noopener noreferrer">Twitter</a></li> <br />
-                        <li><a href="https://discord.gg/7pAwWAFG" target="_blank"
-                               rel="noopener noreferrer">Discord</a></li> <br />
-                        <li><Link to="/swapui" target="_blank"
-                               rel="/">SwapUI</Link></li> <br />
-                        <li><Link to="/staking" target="_blank"
-                               rel="/">Staking</Link></li> <br />
-                        <li><Link to="/auctions" target="_blank"
-                               rel="/">Auctions</Link></li> <br />
-                    </Menu>
-                    <Wallet>
-                        {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<MenuConnectButton/></WalletAmount> :
-                            <MenuConnectButton>Connect Wallet</MenuConnectButton>}
-                    </Wallet>
-                </WalletContainer>
-                <br />
-                <MintContainer>
-                    <TestBox>
-                      <RecentSwapsLeft>
-                        Recent Swaps Box
-                      </RecentSwapsLeft>
-                      <TestBox2>
-                        Test SwapUI Box
-                      </TestBox2>
-                      <RecentSwapsRight>
-                        Recent Swaps Box
-                      </RecentSwapsRight>
-                    </TestBox>
-                </MintContainer>
-            </MainContainer>
-            <Snackbar
-                open={alertState.open}
-                autoHideDuration={6000}
-                onClose={() => setAlertState({...alertState, open: false})}
+  return (
+    <main>
+      <MainContainer>
+        <WalletContainer>
+          <Logo>
+            <a
+              href="https://bitmages.vercel.app/home"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-                <Alert
-                    onClose={() => setAlertState({...alertState, open: false})}
-                    severity={alertState.severity}
-                >
-                    {alertState.message}
-                </Alert>
-            </Snackbar>
-        </main>
-    )
+              <img alt="" src="BitMageLogo1.png" />
+            </a>
+          </Logo>
+          <Menu>
+            <li>
+              <a
+                href="https://twitter.com/BitMages"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+            </li>{" "}
+            <br />
+            <li>
+              <a
+                href="https://discord.gg/7pAwWAFG"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Discord
+              </a>
+            </li>{" "}
+            <br />
+            <li>
+              <Link to="/swapui" target="_blank" rel="/">
+                SwapUI
+              </Link>
+            </li>{" "}
+            <br />
+            <li>
+              <Link to="/staking" target="_blank" rel="/">
+                Staking
+              </Link>
+            </li>{" "}
+            <br />
+            <li>
+              <Link to="/auctions" target="_blank" rel="/">
+                Auctions
+              </Link>
+            </li>{" "}
+            <br />
+          </Menu>
+          <Wallet>
+            {wallet ? (
+              <WalletAmount>
+                {(balance || 0).toLocaleString()} SOL
+                <MenuConnectButton />
+              </WalletAmount>
+            ) : (
+              <MenuConnectButton>Connect Wallet</MenuConnectButton>
+            )}
+          </Wallet>
+        </WalletContainer>
+        <br />
+        <MintContainer>
+          <TestBox>
+            <RecentSwapsLeft>Recent Swaps Box</RecentSwapsLeft>
+            <TestBox2>Test SwapUI Box</TestBox2>
+            <RecentSwapsRight>Recent Swaps Box</RecentSwapsRight>
+          </TestBox>
+        </MintContainer>
+      </MainContainer>
+      <Snackbar
+        open={alertState.open}
+        autoHideDuration={6000}
+        onClose={() => setAlertState({ ...alertState, open: false })}
+      >
+        <Alert
+          onClose={() => setAlertState({ ...alertState, open: false })}
+          severity={alertState.severity}
+        >
+          {alertState.message}
+        </Alert>
+      </Snackbar>
+    </main>
+  );
 };
 
 export default SwapPage;
