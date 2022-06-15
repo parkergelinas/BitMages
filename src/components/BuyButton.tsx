@@ -1,90 +1,64 @@
-import styled from 'styled-components';
-import {useEffect, useState} from 'react';
-import Button from '@material-ui/core/Button';
-import {CircularProgress} from '@material-ui/core';
-import {GatewayStatus, useGateway} from '@civic/solana-gateway-react';
-import {CandyMachine} from '../candy-machine';
-
+import React from "react";
+import styled from "styled-components";
+import { useEffect, useState } from "react";
+import {
+  useAnchorWallet,
+  useConnection,
+  useWallet,
+} from "@solana/wallet-adapter-react";
+import {
+  Connection,
+  PublicKey,
+  Keypair,
+  clusterApiUrl,
+  SystemProgram,
+  Transaction,
+} from "@solana/web3.js";
+import Button from "@material-ui/core/Button";
+import { CircularProgress } from "@material-ui/core";
+import { GatewayStatus, useGateway } from "@civic/solana-gateway-react";
+import { CandyMachine } from "../candy-machine";
+import { buy } from "../api/src/auction-house";
 
 export const CTAButton = styled(Button)`
   display: block !important;
   margin: 0 auto !important;
-  background-color: #E09EF3!important;
+  background-color: #e09ef3 !important;
   box-shadow: 5px 5px 4em rgba(255, 255, 255, 0);
   min-width: 120px !important;
   font-size: 1em !important;
 `;
 
-export const BuyButton = ({
-                               onMint,
-                               candyMachine,
-                               isMinting,
-                               isEnded,
-                               isActive,
-                               isSoldOut
-                           }: {
-    onMint: () => Promise<void>;
-    candyMachine: CandyMachine | undefined;
-    isMinting: boolean;
-    isEnded: boolean;
-    isActive: boolean;
-    isSoldOut: boolean;
-}) => {
-    const {requestGatewayToken, gatewayStatus} = useGateway();
-    const [clicked, setClicked] = useState(false);
-    const [isVerifying, setIsVerifying] = useState(false);
+export const BuyButton: React.FC = () => {
+  const { connection } = useConnection();
+  let walletAddress = "";
+  var AuctionAddress = "";
 
-    useEffect(() => {
-        setIsVerifying(false);
-        if (gatewayStatus === GatewayStatus.COLLECTING_USER_INFORMATION && clicked) {
-            // when user approves wallet verification txn
-            setIsVerifying(true);
-        } else if (gatewayStatus === GatewayStatus.ACTIVE && clicked) {
-            console.log('Verified human, now minting...');
-            onMint();
-            setClicked(false);
-        }
-    }, [gatewayStatus, clicked, setClicked, onMint]);
+  // if you use anchor, use the anchor hook instead
+  // const wallet = useAnchorWallet();
+  // const walletAddress = wallet?.publicKey.toString();
+  const wallet = useWallet();
 
-    return (
-        <CTAButton
-            disabled={
-                clicked ||
-                candyMachine?.state.isSoldOut ||
-                isSoldOut ||
-                isMinting ||
-                isEnded ||
-                !isActive ||
-                isVerifying
-            }
-            onClick={async () => {
-                if (isActive && candyMachine?.state.gatekeeper && gatewayStatus !== GatewayStatus.ACTIVE) {
-                    console.log('Requesting gateway token');
-                    setClicked(true);
-                    await requestGatewayToken();
-                } else {
-                    console.log('Minting...');
-                    await onMint();
-                }
-            }}
-            variant="contained"
-        >
-            {!candyMachine ? (
-                "CONNECTING..."
-            ) : candyMachine?.state.isSoldOut || isSoldOut ? (
-                'SOLD OUT'
-            ) : isActive ? (
-                isVerifying ? 'VERIFYING...' :
-                    isMinting || clicked ? (
-                        <CircularProgress/>
-                    ) : (
-                        "MINT"
-                    )
-            ) : isEnded ? "ENDED" : (candyMachine?.state.goLiveDate ? (
-                "SOON"
-            ) : (
-                "UNAVAILABLE"
-            ))}
-        </CTAButton>
-    );
+  console.log("wallet details", { keypair: Keypair.generate().secretKey });
+
+  function getBuy() {
+    buy({
+      auctionHouse: AuctionAddress,
+      buyPrice: price,
+      tokenSize: "1",
+      mint: mintAddress,
+      env: "devnet",
+      keypair: Keypair.generate().secretKey,
+    }).then((x) => {
+      alert("Buy / offer Action" + "Offer: " + x);
+    });
+  }
+  if (wallet.connected && wallet.publicKey) {
+    walletAddress = wallet.publicKey.toString();
+  }
+
+  const [price, setInput] = useState(""); // '' is the initial state value
+  const [mintAddress, setInput2] = useState(""); // '' is the initial state value
+
+  return <CTAButton onClick={getBuy}>Test Button</CTAButton>;
 };

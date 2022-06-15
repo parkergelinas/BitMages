@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { TestButton } from "../components/Button";
+import { BuyButton } from "../components/BuyButton";
 
 const MainContainer = styled.div`
   display: flex;
@@ -288,7 +289,7 @@ const SideMenu = styled(NFT)`
   width: 100px;
 `;
 
-const BuyButton = styled(TestButton)`
+const TButton = styled(TestButton)`
   border-radius: 8px !important;
   position: absolute;
   bottom: -18px;
@@ -552,6 +553,13 @@ const AuctionPage = (props: IAuctionPageProps) => {
             <TestBox>
               <Card>
                 Auction Item
+                <input
+                  type="number"
+                  value={price}
+                  onInput={(e) =>
+                    setInput((e.target as HTMLTextAreaElement).value)
+                  }
+                />
                 <BuyButton>Buy</BuyButton>
               </Card>
               <Card>
