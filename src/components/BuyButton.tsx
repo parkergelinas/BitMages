@@ -39,8 +39,6 @@ export const BuyButton: React.FC = () => {
   // const walletAddress = wallet?.publicKey.toString();
   const wallet = useWallet();
 
-  console.log("wallet details", { keypair: Keypair.generate().secretKey });
-
   function getBuy() {
     buy({
       auctionHouse: AuctionAddress,
@@ -60,5 +58,5 @@ export const BuyButton: React.FC = () => {
   const [price, setInput] = useState(""); // '' is the initial state value
   const [mintAddress, setInput2] = useState(""); // '' is the initial state value
 
-  return <CTAButton onClick={getBuy}>Test Button</CTAButton>;
+  return <CTAButton onClick={getBuy}>Buy</CTAButton>;
 };

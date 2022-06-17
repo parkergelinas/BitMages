@@ -15,17 +15,30 @@ import {
 } from "./helpers/accounts";
 import { BN, web3 } from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID, WRAPPED_SOL_MINT } from "./helpers/constants";
-import { ASSOCIATED_TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 import { getPriceWithMantissa } from "./helpers/various";
 import { sendTransactionWithRetryWithKeypair } from "./helpers/transactions";
 import { decodeMetadata, Metadata } from "./helpers/schema";
-import { Keypair } from "@solana/web3.js";
+
+import { sendTransactions } from "./helpers/connection";
+
+import { ASSOCIATED_TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
+import { Keypair, SystemProgram } from "@solana/web3.js";
+
 import {
   CIVIC,
   getNetworkExpire,
   getNetworkToken,
   SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID,
 } from "./helpers/utils";
+
+export interface AuctionHouse {
+  id: "";
+}
+
+interface AuctionHouseState {
+  itemsAvailable: number;
+  itemsRemaining: number;
+}
 
 export async function getAuctionHouseFromOpts(
   auctionHouse: any,

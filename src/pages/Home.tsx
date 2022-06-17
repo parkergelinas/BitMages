@@ -12,7 +12,6 @@ import { Snackbar, Paper, LinearProgress, Chip } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { toDate, AlertState, getAtaForMint } from "../utils";
 import { MintButton } from "../components/MintButton";
-import { BuyButton } from "../components/BuyButton";
 import {
   CandyMachine,
   awaitTransactionSignatureConfirmation,

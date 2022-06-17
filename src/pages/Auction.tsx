@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { TestButton } from "../components/Button";
 import { BuyButton } from "../components/BuyButton";
+import { ClearableInput } from "../components/InputField";
+import { ReactComponent as Clear } from "../components/clear.svg";
 
 const MainContainer = styled.div`
   display: flex;
@@ -317,7 +319,9 @@ const Card = styled(Paper)`
     margin: 0px;
   }
   button {
-    padding: 10px 20px;
+    background-color: #b261c9 !important;
+    position: absolute;
+    bottom: -30px;
   }
 `;
 
@@ -437,6 +441,36 @@ const DesContainer = styled.div`
   gap: 20px;
 `;
 
+const Container = styled.div`
+  font-family: "Arial";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 1px 1px 1px thistle;
+  }
+`;
+
+const TextInput = styled.input`
+  flex: 1 0;
+  min-width: 50px;
+  min-height: 25px;
+  font-size: inherit;
+  background-color: transparent;
+  padding-left: 5px;
+  border: 0;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Icon = styled.div`
+  flex: 0 0;
+`;
+
 export interface IAuctionPageProps {
   connection: anchor.web3.Connection;
   txTimeout: number;
@@ -480,6 +514,8 @@ const AuctionPage = (props: IAuctionPageProps) => {
       }
     })();
   }, [wallet, props.connection]);
+
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <main>
@@ -553,13 +589,24 @@ const AuctionPage = (props: IAuctionPageProps) => {
             <TestBox>
               <Card>
                 Auction Item
-                <input
-                  type="number"
-                  value={price}
-                  onInput={(e) =>
-                    setInput((e.target as HTMLTextAreaElement).value)
-                  }
-                />
+                <Container>
+                  <TextInput
+                    value={inputValue}
+                    onChange={(event) => {
+                      setInputValue(event.target.value);
+                    }}
+                  />
+                  <Icon>
+                    <Clear
+                      width="20px"
+                      height="20px"
+                      stroke="black"
+                      onClick={() => {
+                        setInputValue("");
+                      }}
+                    />
+                  </Icon>
+                </Container>
                 <BuyButton>Buy</BuyButton>
               </Card>
               <Card>
