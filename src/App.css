@@ -2,42 +2,49 @@
 :root {
   --main-background-color: #c1a1ce;
   --card-background-color: #875496;
-  --card-background-lighter-color: #E09EF3;
-  --main-text-color:#000000;
-  --title-text-color:rgb(0, 0, 0);
+  --card-background-lighter-color: #e09ef3;
+  --main-text-color: #000000;
+  --title-text-color: rgb(0, 0, 0);
   --clr-neon: hsl(317 100% 54%);
 }
 
-a{
-  color: white; text-decoration: none;
+a {
+  color: white;
+  text-decoration: none;
 }
 
-body{
-  background-color:var(--main-background-color);
+body {
+  background-color: var(--main-background-color);
+  background: linear-gradient(
+    180deg,
+    rgb(252, 95, 142) 7%,
+    rgb(139, 102, 241) 100%
+  );
   /*background: url("img/background.png");
   background-size: cover;*/
 
   font-size: 1.1em;
 }
 
-h2, p{
+h2,
+p {
   color: var(--main-text-color);
 }
 
-h3{
+h3 {
   font-weight: normal;
 }
 
-.MuiFab-extended{
+.MuiFab-extended {
   height: auto;
   padding-right: 0 !important;
 }
 
-.MuiFab-label{
+.MuiFab-label {
   font-weight: bold;
 }
 
-.MuiPaper-root{
+.MuiPaper-root {
   background-color: #000000 !important;
 }
 
@@ -50,12 +57,12 @@ h3{
   padding: 6px 16px;
 }
 
-.MuiButton-label{
+.MuiButton-label {
   font-size: 1.2em;
 }
 
-.MuiLinearProgress-colorPrimary{
-  background-color:var(--main-text-color) !important;
+.MuiLinearProgress-colorPrimary {
+  background-color: var(--main-text-color) !important;
 }
 
 .neon-button {
@@ -67,11 +74,9 @@ h3{
   color: var(--clr-neon);
   border: var(--clr-neon) 0.125em solid;
   padding: 0.25em 1.5em;
-  border-radius: .25em;
+  border-radius: 0.25em;
 
-  text-shadow:
-    0 0 0.25em hsl(0 0% 100% / 0.3),
-    0 0 0.45em currentColor;
+  text-shadow: 0 0 0.25em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
 
   box-shadow: inset 0 0 1em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
 
